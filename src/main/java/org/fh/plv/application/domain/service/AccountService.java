@@ -21,7 +21,7 @@ public class AccountService implements CreateAccountUseCase {
     @Override
     public Account createAccount(String accountName) {
         AccountId accountId = generateNewAccountId();
-        Money balance = generateNewMoney(INIT_BALANCE);
+        Money balance = new Money(INIT_BALANCE);
         Account newAccount = Account.builder()
                 .accountId(accountId)
                 .accountName(accountName)
@@ -32,14 +32,7 @@ public class AccountService implements CreateAccountUseCase {
     }
 
     private AccountId generateNewAccountId() {
-        return AccountId.builder()
-                .id(UUID.randomUUID().toString())
-                .build();
-    }
-
-    private Money generateNewMoney(BigDecimal amount) {
-        return Money.builder()
-                .amount(amount)
-                .build();
+        String accountId = UUID.randomUUID().toString();
+        return new AccountId(accountId);
     }
 }

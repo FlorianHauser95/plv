@@ -5,7 +5,6 @@ import lombok.*;
 @Getter
 @EqualsAndHashCode
 @AllArgsConstructor
-@Builder
 public final class AccountId {
 
     @NonNull
