@@ -24,7 +24,7 @@ public final class Money {
         return new Money(this.amount.subtract(other.amount));
     }
 
-    public boolean isLowerThanOrEqualZero() {
+    public boolean isPositive() {
         return amount.compareTo(BigDecimal.ZERO) >= 0;
     }
 }

@@ -4,6 +4,7 @@ import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
 import jakarta.inject.Inject;
 import org.fh.plv.application.domain.model.aggregate.Account;
+import org.fh.plv.application.domain.model.valueObject.AccountId;
 import org.fh.plv.application.port.out.AccountRepositoryPort;
 import org.junit.jupiter.api.Test;
 
@@ -41,7 +42,7 @@ class AccountResourceTest {
                 .extract()
                 .path("accountId");
 
-        Account account = accountRepositoryPort.findById(id);
+        Account account = accountRepositoryPort.findById(new AccountId(id));
         assertEquals(id, account.getAccountId().getId());
         assertEquals(accountName, account.getAccountName());
         assertEquals(BigDecimal.ZERO, account.getBalance().getAmount());

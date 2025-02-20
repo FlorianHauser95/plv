@@ -1,10 +1,13 @@
 package org.fh.plv.application.domain.model.valueObject;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NonNull;
 
 @Getter
-@EqualsAndHashCode
 @AllArgsConstructor
+@EqualsAndHashCode
 public final class AccountId {
 
     @NonNull

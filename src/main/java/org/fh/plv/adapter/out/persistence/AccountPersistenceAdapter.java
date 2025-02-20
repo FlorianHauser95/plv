@@ -4,6 +4,7 @@ import io.quarkus.mongodb.panache.PanacheQuery;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.fh.plv.application.domain.model.aggregate.Account;
+import org.fh.plv.application.domain.model.valueObject.AccountId;
 import org.fh.plv.application.port.out.AccountRepositoryPort;
 
 import java.util.List;
@@ -19,8 +20,8 @@ public class AccountPersistenceAdapter implements AccountRepositoryPort {
     AccountPersistenceMapper vehiclePersistenceMapper;
 
     @Override
-    public Account findById(String id) {
-        AccountEntity entity = accountRepository.findById(id);
+    public Account findById(AccountId id) {
+        AccountEntity entity = accountRepository.findById(id.getId());
         return vehiclePersistenceMapper.entityToDomain(entity);
     }
 
@@ -40,7 +41,7 @@ public class AccountPersistenceAdapter implements AccountRepositoryPort {
     }
 
     @Override
-    public void delete(String id) {
-        accountRepository.deleteById(id);
+    public void delete(AccountId id) {
+        accountRepository.deleteById(id.getId());
     }
 }

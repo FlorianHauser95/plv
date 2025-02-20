@@ -35,4 +35,5 @@ public class AccountService implements CreateAccountUseCase {
         String accountId = UUID.randomUUID().toString();
         return new AccountId(accountId);
     }
+
 }
