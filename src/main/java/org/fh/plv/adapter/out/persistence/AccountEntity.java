@@ -5,7 +5,7 @@ import org.bson.codecs.pojo.annotations.BsonId;
 
 import java.math.BigDecimal;
 
-@MongoEntity(collection = "vehicles")
+@MongoEntity(collection = "accounts")
 public class AccountEntity {
     @BsonId
     public String id;
